@@ -70,7 +70,7 @@ def run_ocr(crnn_session, image_array, test_transforms, int_to_char):
     """Run OCR on number plate crop"""
     image_rgb = cv2.cvtColor(image_array, cv2.COLOR_BGR2RGB)
     img_tensor = test_transforms(image = image_rgb)["image"]
-    img_tensor = img_tensor.unqueeze(0).cpu().numpy()
+    img_tensor = img_tensor.unsqueeze(0).cpu().numpy()
     
     ort_inputs = {crnn_session.get_inputs()[0].name: img_tensor}
     ort_outputs = crnn_session.run(None, ort_inputs)
