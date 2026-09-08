@@ -37,14 +37,14 @@ train_transforms = A.Compose([
     A.ImageCompression(quality_lower = 50 , quality_upper = 90 ,p =0.4),
     A.Affine(rotate = (-5 , 5) , shear= (-5 , 5) , p=0.5) ,
     A.RandomShadow(p =0.2),
-    A.Normalize(mean = (0.485 , 0.456 , 0.406) , std = (0.229 , 0.224 , 0.224)),
+    A.Normalize(mean = (0.485 , 0.456 , 0.406) , std = (0.229 , 0.224 , 0.225)),
     ToTensorV2(), # converts HWC numpy array into PyTorch tensor 
 ])
 
 
 valid_transforms = A.Compose([
     A.Resize(100 , 200),
-    A.Normalize(mean = (0.485 , 0.456 , 0.406) , std = (0.229 , 0.224 , 0.224)),
+    A.Normalize(mean = (0.485 , 0.456 , 0.406) , std = (0.229 , 0.224 , 0.225)),
     ToTensorV2(),
 
 ])
